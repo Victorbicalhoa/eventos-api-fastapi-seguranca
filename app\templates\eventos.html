@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Eventos cadastrados</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Data</th>
+                <th>Organizador</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for evento in eventos %}
+            <tr>
+                <td>
+                    <a href="/painel/eventos/{{ evento.id }}">
+                        {{ evento.name }}
+                    </a>
+                </td>
+                <td>{{ evento.data }}</td>
+                <td>{{ evento.organizador }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="3">Nenhum evento cadastrado.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
